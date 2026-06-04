@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id       String    @id @default(uuid())
+  name     String
+  color    String    @default("gray")
+  products Product[]
+}
+
+model Product {
+  id          String @id @default(uuid())
+  name        String
+  sku         String @unique
+  categoryId  String
+  brand       String @default("")
+  productType String @default("")
+  size        String @default("")
+  gender      String @default("unisex")
+  color       String @default("")
+  price       Float  @default(0)
+  cost        Float  @default(0)
+  stock       Int    @default(0)
+  minStock    Int    @default(5)
+  unit        String @default("pcs")
+  description String @default("")
+  createdAt   Float
+  updatedAt   Float
+
+  category         Category         @relation(fields: [categoryId], references: [id])
+  transactions     Transaction[]
+  inventoryBatches InventoryBatch[]
+}
+
+model InventoryBatch {
+  id          String @id @default(uuid())
+  productId   String
+  productName String
+  productSku  String
+  quantity    Int
+  costPerUnit Float
+  totalCost   Float
+  supplier    String @default("")
+  note        String @default("")
+  addedAt     Float
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Transaction {
+  id          String @id @default(uuid())
+  productId   String
+  productName String
+  productSku  String
+  type        String
+  quantity    Int
+  note        String @default("")
+  timestamp   Float
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id          String      @id @default(uuid())
+  orderNumber String      @unique
+  subtotal    Float
+  tax         Float
+  total       Float
+  status      String      @default("completed")
+  createdAt   Float
+
+  items OrderItem[]
+}
+
+model OrderItem {
+  id          String @id @default(uuid())
+  orderId     String
+  productId   String
+  productName String
+  sku         String
+  quantity    Int
+  unitPrice   Float
+  subtotal    Float
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}
+
+model OrderCounter {
+  id      Int @id @default(1)
+  current Int @default(1000)
+}

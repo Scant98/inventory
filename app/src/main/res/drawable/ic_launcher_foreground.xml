@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!--
+        Clay inventory box icon.
+        Layout (viewport 108×108, safe zone 18–90):
+          Lid tab  : x 44–64, y 20–30
+          Box lid  : x 24–84, y 28–52   (rx 9)
+          Box body : x 24–84, y 50–86   (rx 9)
+    -->
+
+    <!-- ── Soft clay shadow beneath box ─────────────────────────────────── -->
+    <group android:translateY="5">
+        <path
+            android:pathData="M33,50 h42 a9,9 0 0,1 9,9 v18 a9,9 0 0,1 -9,9 h-42 a9,9 0 0,1 -9,-9 v-18 a9,9 0 0,1 9,-9z"
+            android:fillColor="#000000"
+            android:fillAlpha="0.13"/>
+    </group>
+
+    <!-- ── Box body (white) ───────────────────────────────────────────── -->
+    <path
+        android:pathData="M33,50 h42 a9,9 0 0,1 9,9 v18 a9,9 0 0,1 -9,9 h-42 a9,9 0 0,1 -9,-9 v-18 a9,9 0 0,1 9,-9z"
+        android:fillColor="#FFFFFF"/>
+
+    <!-- ── Box lid (lavender tint for clay depth) ─────────────────────── -->
+    <path
+        android:pathData="M33,28 h42 a9,9 0 0,1 9,9 v8 a9,9 0 0,1 -9,9 h-42 a9,9 0 0,1 -9,-9 v-8 a9,9 0 0,1 9,-9z"
+        android:fillColor="#EBE8FF"/>
+
+    <!-- ── Lid tab (clay accent pill, center-top) ─────────────────────── -->
+    <path
+        android:pathData="M44,20 h20 a4,4 0 0,1 4,4 v7 a4,4 0 0,1 -4,4 h-20 a4,4 0 0,1 -4,-4 v-7 a4,4 0 0,1 4,-4z"
+        android:fillColor="#B5AFFF"/>
+
+    <!-- ── Inner highlight stripe on lid top edge (clay 3-D) ─────────── -->
+    <path
+        android:pathData="M33,28 h42 a9,9 0 0,1 9,9 v4 h-60 v-4 a9,9 0 0,1 9,-9z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.38"/>
+
+    <!-- ── Divider line between lid and body ─────────────────────────── -->
+    <path
+        android:pathData="M24,50 h60 v2 h-60z"
+        android:fillColor="#7B74FF"
+        android:fillAlpha="0.12"/>
+
+    <!-- ── Content lines (items inside box) ──────────────────────────── -->
+    <path
+        android:pathData="M35,62 h38 v2.5 h-38z"
+        android:fillColor="#6C63FF"
+        android:fillAlpha="0.28"/>
+    <path
+        android:pathData="M35,70 h38 v2.5 h-38z"
+        android:fillColor="#6C63FF"
+        android:fillAlpha="0.22"/>
+    <path
+        android:pathData="M35,78 h24 v2.5 h-24z"
+        android:fillColor="#6C63FF"
+        android:fillAlpha="0.16"/>
+
+</vector>
