@@ -16,7 +16,7 @@ set -euo pipefail
 cd "$DEPLOY_PATH"
 
 echo "→ Pulling latest code"
-git pull origin main
+git pull origin master
 
 echo "→ Installing production dependencies"
 npm ci --omit=dev
