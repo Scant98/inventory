@@ -1,0 +1,7 @@
+{
+  "name": "inventory",
+  "private": true,
+  "dependencies": {
+    "next": "^15.3.3"
+  }
+}
